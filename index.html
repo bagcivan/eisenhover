@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eisenhower Matrix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="" />
+    </div>
+    <h1 id="title"></h1>
+    <div class="language-selector">
+      <select id="language-selector">
+        <option value="tr">Türkçe</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+  </header>
+
+  <main>
+    <div id="q11" class="quadrant">
+      <h2 id="q1"></h2>
+    </div>
+    <div id="q12" class="quadrant">
+      <h2 id="q2"></h2>
+    </div>
+    <div id="q21" class="quadrant">
+      <h2 id="q3"></h2>
+    </div>
+    <div id="q22" class="quadrant">
+      <h2 id="q4"></h2>
+    </div>
+  </main>
+
+
+  <footer>
+    <form id="task-form" class="task-form">
+      <input type="text" id="task-input" />
+      <select id="importance-selector">
+        <option value="important" id="important"></option>
+        <option value="not_important" id="not_important"></option>
+      </select>
+      <select id="urgency-selector">
+        <option value="urgent" id="urgent"></option>
+        <option value="not_urgent" id="not_urgent"></option>
+      </select>
+      <button id="add_task" type="submit"></button>
+    </form>
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="dark-mode-toggle" />
+      <label for="dark-mode-toggle">Dark Mode</label>
+    </div>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
