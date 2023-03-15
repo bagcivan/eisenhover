@@ -24,7 +24,6 @@ body {
   padding: 0;
 }
 
-
 header {
   background-color: var(--color-primary);
   padding: var(--spacing-medium);
@@ -228,4 +227,62 @@ body.dark-mode {
 
 .quadrant::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  header h1 {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  .language-selector {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+
+  .search-container {
+    grid-column: 1;
+    grid-row: 3;
+    justify-content: flex-start;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    margin: 1rem 0.5rem;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 0.5rem;
+  }
+
+  .task-form {
+    grid-column: 1;
+    grid-row: 2;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  footer label,
+  footer input,
+  footer select,
+  footer button {
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+  }
+
+  .dark-mode-toggle {
+    grid-column: 1;
+    grid-row: 3;
+    justify-content: flex-start;
+  }
+  
 }
