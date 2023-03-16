@@ -42,20 +42,23 @@
 
   <footer>
     <form id="task-form" class="task-form">
-      <input type="text" id="task-input" />
-      <select id="importance-selector">
+      <input type="text" id="task-input" class="uniform-size"/>
+      <select id="importance-selector" class="uniform-size">
         <option value="important" id="important"></option>
         <option value="not_important" id="not_important"></option>
       </select>
-      <select id="urgency-selector">
+      <select id="urgency-selector" class="uniform-size">
         <option value="urgent" id="urgent"></option>
         <option value="not_urgent" id="not_urgent"></option>
       </select>
-      <button id="add_task" type="submit"></button>
+      <button id="add_task" type="submit" class="uniform-size"></button>
     </form>
     <div class="dark-mode-toggle">
-      <input type="checkbox" id="dark-mode-toggle" />
-      <label for="dark-mode-toggle">Dark Mode</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="dark-mode-toggle" />
+        <label for="dark-mode-toggle"></label>
+      </div>
+      <label for="dark-mode-toggle"></label>
     </div>
   </footer>
 
