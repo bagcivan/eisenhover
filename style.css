@@ -186,20 +186,56 @@ footer button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-switch label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label {
+  background-color: #4caf50;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label::after {
+  transform: translateX(20px);
+}
+
 .dark-mode-toggle {
   grid-column: 3;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.dark-mode-toggle input {
-  display: none;
-}
-
-.dark-mode-toggle label {
-  cursor: pointer;
-  font-size: 0.8rem;
 }
 
 body.dark-mode {
@@ -229,6 +265,13 @@ body.dark-mode {
   display: none;
 }
 
+.uniform-size {
+  height: 40px; 
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
 @media (max-width: 768px) {
   header {
     grid-template-columns: 1fr;
@@ -240,18 +283,21 @@ body.dark-mode {
     grid-column: 1;
     grid-row: 1;
     text-align: left;
+    padding: 0.2rem;
   }
 
   .language-selector {
     grid-column: 1;
     grid-row: 2;
     justify-content: flex-start;
+    padding: 0.2rem;
   }
 
   .search-container {
     grid-column: 1;
     grid-row: 3;
     justify-content: flex-start;
+    padding: 0.2rem;
   }
 
   main {
