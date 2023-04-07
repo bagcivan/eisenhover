@@ -183,12 +183,14 @@ function changeLanguage(language) {
   });
   const searchInput = document.getElementById("search-input");
   searchInput.placeholder = translations[language]["search_tasks"];
+
+  const taskInput = document.getElementById("task-input");
+  taskInput.placeholder = translations[language]["task_input"];
 }
 
 function toggleDarkMode(enabled) {
   document.body.classList.toggle('dark-mode', enabled);
 }
-
 
 function initializePreferences() {
   const storedLanguage = localStorage.getItem('language');
@@ -218,6 +220,37 @@ function handleDarkModeChange() {
   toggleDarkMode(darkModeEnabled);
 }
 
+function updateSelectorsOnQuadrantClick(quadrantId) {
+  const importanceSelector = document.getElementById('importance-selector');
+  const urgencySelector = document.getElementById('urgency-selector');
+
+  if (quadrantId === 'q11') {
+    importanceSelector.value = 'important';
+    urgencySelector.value = 'urgent';
+  } else if (quadrantId === 'q12') {
+    importanceSelector.value = 'important';
+    urgencySelector.value = 'not_urgent';
+  } else if (quadrantId === 'q21') {
+    importanceSelector.value = 'not_important';
+    urgencySelector.value = 'urgent';
+  } else if (quadrantId === 'q22') {
+    importanceSelector.value = 'not_important';
+    urgencySelector.value = 'not_urgent';
+  }
+
+  const taskInput = document.getElementById('task-input');
+  taskInput.focus();
+}
+
+function handleDragEvents(event) {
+  event.preventDefault();
+  if (event.type === 'dragenter') {
+    event.target.classList.add('drag-over');
+  } else if (event.type === 'dragleave') {
+    event.target.classList.remove('drag-over');
+  }
+}
+
 const languageSelector = document.getElementById('language-selector');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 
@@ -235,6 +268,9 @@ function init() {
     quadrant.ondragleave = onDragLeave;
     quadrant.ondrop = function (event) {
       onDrop(event, quadrant.id);
+    };
+    quadrant.onclick = function () {
+      updateSelectorsOnQuadrantClick(quadrant.id);
     };
   });
 
@@ -264,7 +300,6 @@ function init() {
   darkModeToggle.addEventListener('change', (event) => {
     document.body.classList.toggle('dark-mode', event.target.checked);
   });
-
 }
 
 init();

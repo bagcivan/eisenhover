@@ -54,7 +54,7 @@ header h1 {
   align-items: center;
 }
 
-#search-input {
+#search_input{
   padding: 0.3rem;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -76,6 +76,7 @@ main {
   border-width: 1px;
   border-style: solid;
   overflow-y: auto;
+  cursor: pointer;
 }
 
 .quadrant h2 {
@@ -136,6 +137,13 @@ main {
   opacity: 1;
 }
 
+.task-edit-input {
+  border: none;
+  background-color: transparent;
+  font-size: var(--font-size-medium);
+  width: 100%;
+}
+
 footer {
   background-color: var(--color-primary);
   padding: 1rem;
@@ -179,8 +187,8 @@ footer button:hover {
   align-items: center;
   justify-content: center;
   grid-column: 2;
+  
 }
-
 
 .drag-over {
   background-color: rgba(0, 0, 0, 0.1);
@@ -257,6 +265,10 @@ body.dark-mode {
   background-color: #555;
 }
 
+.dark-mode .task-edit-input {
+  color: #fff;
+}
+
 .dark-mode .quadrant h2 {
   background-color: #333;
 }
@@ -270,6 +282,14 @@ body.dark-mode {
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid #ccc;
+  margin: 3px;
+}
+
+#task-input {
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200%;
 }
 
 @media (max-width: 768px) {
